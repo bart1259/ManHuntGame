@@ -58,6 +58,7 @@ app.post('/startSession', (req, res) => {
         status: 'waiting',
         locations: []
     } 
+
     sessions[sessionId] = session
     console.log(sessions[sessionId])
     res.send(sessions[sessionId])
@@ -122,6 +123,8 @@ app.post('/updateLocation', (req, res) => {
     session.chaserLocations = filterLocations(session.locations)
     res.send(session)
 })
+
+// TODO: app.post('/closeSession')
 
 // Frontend hosting;
 

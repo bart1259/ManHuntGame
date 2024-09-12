@@ -20,6 +20,7 @@ export default function Map(props) {
 
     let landmarks = props.landmarks || [];
     let redLandmarks = props.redLandmarks || [];
+    let ownLocation = props.ownLocation || [];
 
     for (let i = 0; i < landmarks.length; i++) {
       for (let j = 0; j < redLandmarks.length; j++) {
@@ -66,14 +67,23 @@ export default function Map(props) {
             return (
               <Circle 
                 center={{lat:landmark.lat, lng: landmark.lon}}
-                fillColor="red" 
-                color="red"
+                fillColor="green" 
+                color="green"
                 radius={15}
                 opacity={0.5}
               />
             )
           })
         }
+        
+        <Circle 
+          center={{lat:ownLocation.latitude, lng: ownLocation.longitude}}
+          fillColor="red" 
+          color="red"
+          radius={15}
+          opacity={0.5}
+        />
+        
         <Polyline positions={maPoints} color="blue"/>
         <Polyline positions={redMaPoints} color="red"/>
       </MapContainer>
