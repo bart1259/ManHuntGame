@@ -48,6 +48,9 @@ function App() {
         getSession(sessionIdEntered, playerId).then((curSess) => {
           setSession(curSess)
         })
+        navigator.geolocation.getCurrentPosition((position) => {
+          ownLocation = position.coords
+        })
       }
       updateChaser()
 
@@ -118,7 +121,7 @@ function App() {
           <h1>Session: {session.sessionId}</h1>
           <h1>Chaser! Get ready to chase!</h1>
           <div className='map-container'>
-            <Map landmarks={session.locations} />
+            <Map landmarks={session.locations} ownLocation={ownLocation}/>
           </div>
         </div>
       }
