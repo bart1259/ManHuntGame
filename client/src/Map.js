@@ -57,7 +57,7 @@ export default function Map(props) {
                 fillColor="blue" 
                 color="blue"
                 radius={15}
-                opacity={0.5}
+                opacity={0.2}
               />
             )
           })
@@ -70,7 +70,7 @@ export default function Map(props) {
                 fillColor="green" 
                 color="green"
                 radius={15}
-                opacity={0.5}
+                opacity={0.2}
               />
             )
           })
