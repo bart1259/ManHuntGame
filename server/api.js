@@ -4,7 +4,7 @@ const path = require('path')
 const cors = require('cors')
 const bodyParser = require('body-parser')
  
-const DEBUG = true
+const DEBUG = false
 
 const PORT = process.env.PORT || 443;
 const app = express()
