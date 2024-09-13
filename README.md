@@ -7,6 +7,7 @@ Manhunt is a game played in the real world where a runner tries to run from a gr
 # Runnning
 Local development
 ```sh
+cd client/src
 npm install
 # To disable SSH set `const DEBUG = false` in api.js
 npm run build
