@@ -67,8 +67,8 @@ export default function Map(props) {
             return (
               <Circle 
                 center={{lat:landmark.lat, lng: landmark.lon}}
-                fillColor="green" 
-                color="green"
+                fillColor="red" 
+                color="red"
                 radius={15}
                 opacity={0.5}
               />
@@ -78,8 +78,8 @@ export default function Map(props) {
         
         <Circle 
           center={{lat:ownLocation.latitude, lng: ownLocation.longitude}}
-          fillColor="red" 
-          color="red"
+          fillColor="green" 
+          color="green"
           radius={15}
           opacity={0.5}
         />
