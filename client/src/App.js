@@ -7,6 +7,8 @@ import { startSession, updateLocation, getSession } from './endpoints.js'
 
 function App() {
 
+  let ownLocation
+
   let [noSleep, _] = useState(new NoSleep())
 
   navigator.geolocation.getCurrentPosition((p) => {
