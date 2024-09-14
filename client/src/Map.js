@@ -20,7 +20,8 @@ export default function Map(props) {
 
     let landmarks = props.landmarks || [];
     let redLandmarks = props.redLandmarks || [];
-    let ownLocation = props.ownLocation || [];
+    let ownLatitude = props.ownLocation.latitude || 0;
+    let ownLongitude = props.ownLocation.longitude || 0;
 
     for (let i = 0; i < landmarks.length; i++) {
       for (let j = 0; j < redLandmarks.length; j++) {
@@ -44,7 +45,7 @@ export default function Map(props) {
     let redMaPoints = movingAverage(redLandmarkPoints, 5)
 
     return (
-      <MapContainer center={[43.03890000, -87.90647000]} zoom={13} scrollWheelZoom={true}>
+      <MapContainer center={[ownLatitude, ownLongitude]} zoom={13} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -77,7 +78,7 @@ export default function Map(props) {
         }
         
         <Circle 
-          center={{lat:ownLocation.latitude, lng: ownLocation.longitude}}
+          center={{lat:ownLatitude, lng: ownLongitude}}
           fillColor="green" 
           color="green"
           radius={15}
