@@ -145,9 +145,6 @@ app.get("/", (req, res) => {
 // Host everything in dist folder
 
 // PKI Validation path
-app.get("/" + fs.readFileSync(path.join(__dirname, '../client/cert', 'pki-validation.path')), (req, res) => {
-    res.send(fs.readFileSync(path.join(__dirname, '../client/cert', 'pki-validation.txt')));
-})
 
 if (DEBUG) {
     app.listen(PORT, '0.0.0.0', () => {
@@ -155,6 +152,11 @@ if (DEBUG) {
         }
     )
 } else {
+
+    app.get("/" + fs.readFileSync(path.join(__dirname, '../client/cert', 'pki-validation.path')), (req, res) => {
+        res.send(fs.readFileSync(path.join(__dirname, '../client/cert', 'pki-validation.txt')));
+    })
+
     const sslServer = https.createServer({
         key: fs.readFileSync(path.join(__dirname, '../client/cert', 'private.key')),
         cert: fs.readFileSync(path.join(__dirname, '../client/cert', 'certificate.crt')),

@@ -6,13 +6,13 @@ import React, { useState } from 'react';
 import { startSession, updateLocation, getSession } from './endpoints.js'
 
 function App() {
-
   let ownLocation
 
   let [noSleep, _] = useState(new NoSleep())
 
   navigator.geolocation.getCurrentPosition((p) => {
     console.log(p)
+    ownLocation = p.coords
   })
 
   let [screen, setScreen] = useState('home')
@@ -50,8 +50,9 @@ function App() {
         getSession(sessionIdEntered, playerId).then((curSess) => {
           setSession(curSess)
         })
-        navigator.geolocation.getCurrentPosition((position) => {
-          ownLocation = position.coords
+
+        navigator.geolocation.getCurrentPosition((p) => {
+          ownLocation = p
         })
       }
       updateChaser()
